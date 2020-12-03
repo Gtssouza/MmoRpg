@@ -26,16 +26,28 @@ module.exports.exit = function(application, req,res){
 }
 
 module.exports.suditos = function(application, req,res){
+    if(req.session.autorizado !== true){
+        res.send('Faça Login');
+        return;
+    }
     
         res.render("aldeoes", {validacao: {}});
 }
 
 module.exports.pergaminhos = function(application, req,res){
+    if(req.session.autorizado !== true){
+        res.send('Faça Login');
+        return;
+    }
     
         res.render("pergaminhos", {validacao: {}});
 }
 
 module.exports.ordenar = function(application, req,res){
+    if(req.session.autorizado !== true){
+        res.send('Faça Login');
+        return;
+    }
     
     var dadosForm = req.body;
 

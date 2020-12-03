@@ -23,6 +23,7 @@
 
 			$(document).ready(function(){
 				$('#btn_suditos').click(function(){
+					$('#msg_erros').hide();
 					$.ajax({
 						url: '/suditos',
 						method: 'get',
@@ -35,6 +36,7 @@
 
 			$(document).ready(function(){
 				$('#btn_pergaminhos').click(function(){
+					$('#msg_erros').hide();
 					$.ajax({
 						url: '/pergaminhos',
 						method: 'get',
@@ -61,9 +63,9 @@
 	    <div class="container">
 
 			<% if(comando_invalido) {%>
-				<div class="alert alert-danger">
+				<div class="alert alert-danger" id="msg_erros">
 					<strong>Verifique se os campos foram preenchidos corretamente</strong>
-					
+
 				</div>
 			<% } %> 
 	    	
