@@ -39,7 +39,13 @@ module.exports.pergaminhos = function(application, req,res){
         res.send('Faça Login');
         return;
     }
-    
+        //recuperar as ações inseridas no banco de dados
+        var usuario = req.session.usuario;
+        var conn = application.config.dbConn;
+        var JogoDAO = new application.app.models.JogoDAO(conn);
+
+        JogoDAO.getAcoes(usuario);
+
         res.render("pergaminhos", {validacao: {}});
 }
 
