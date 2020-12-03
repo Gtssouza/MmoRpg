@@ -59,6 +59,13 @@
 		</nav>
 
 	    <div class="container">
+
+			<% if(comando_invalido) {%>
+				<div class="alert alert-danger">
+					<strong>Verifique se os campos foram preenchidos corretamente</strong>
+					
+				</div>
+			<% } %> 
 	    	
 			<div class="row">
 	    		<div class="col-sm-3 casa">
