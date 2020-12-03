@@ -45,6 +45,7 @@ UsuariosDAO.prototype.autenticar = function(usuario, req,res){
         mongoclient.collection("usuarios", function(err, collection){
             collection.find(usuario).toArray(function(err, result){
                 if(result[0] != undefined){
+                    
                     req.session.autorizado = true;
                     req.session.usuario = result[0].usuario;
                     req.session.casa = result[0].casa;
