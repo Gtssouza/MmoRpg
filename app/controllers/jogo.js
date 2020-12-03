@@ -44,9 +44,9 @@ module.exports.pergaminhos = function(application, req,res){
         var conn = application.config.dbConn;
         var JogoDAO = new application.app.models.JogoDAO(conn);
 
-        JogoDAO.getAcoes(usuario);
+        JogoDAO.getAcoes(usuario, res);
 
-        res.render("pergaminhos", {validacao: {}});
+       
 }
 
 module.exports.ordenar = function(application, req,res){
