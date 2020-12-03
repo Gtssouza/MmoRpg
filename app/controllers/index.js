@@ -14,5 +14,14 @@ module.exports.autenticar = function(application, req, res){
         res.render('index', {validacao: erros});
         return;
     }
-    res.send('tudo ok para validar')
+
+    //conexao com o banco de dados
+    var conn = application.config.dbConn;
+
+    //autenticação
+    var UsuariosDAO = new application.app.models.UsuariosDAO(conn);
+
+    UsuariosDAO.autenticar(dadosForm, req, res);
+
+    //res.send('tudo ok para validar')
 }
