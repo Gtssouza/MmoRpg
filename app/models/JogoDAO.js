@@ -104,9 +104,10 @@ JogoDAO.prototype.revogarAcao = function(_id, res){
         mongoclient.collection("acao", function(err, collection){
 
             collection.remove(
-                {_id: _id},
-                function(){
-
+                {_id: ObjectID(_id)},
+                function(err, result){
+                    res.redirect('/jogo?msg=D')
+                    mongoclient.close();
                 }
                 );
             
