@@ -74,3 +74,9 @@ module.exports.ordenar = function(application, req,res){
     JogoDAO.acao(dadosForm);
     res.redirect('jogo?msg=B');
 }
+
+module.exports.revogar = function(application, req,res){
+    var url_query = req.query;
+    res.send(url_query);
+
+}
