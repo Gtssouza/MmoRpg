@@ -77,6 +77,10 @@ module.exports.ordenar = function(application, req,res){
 
 module.exports.revogar = function(application, req,res){
     var url_query = req.query;
-    res.send(url_query);
+    var _id = url_query.id_acao;
 
+    var conn = application.config.dbConn;
+    var JogoDAO = new application.app.models.JogoDAO(conn);
+
+    JogoDAO.revogarAcao(_id);
 }
